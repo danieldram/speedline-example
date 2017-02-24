@@ -3,7 +3,7 @@
 ## Installation Instructions
 Run the following commands
 ```
-git clone speedline-example git@github.com:danieldram/speedline-example.git
+git clone git@github.com:danieldram/speedline-example.git speedline-example 
 cd speed-line
 npm install jest -g
 npm test
