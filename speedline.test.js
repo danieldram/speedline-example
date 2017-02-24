@@ -4,8 +4,11 @@ const incompleteDataset = require('./mock.dataset.incomplete')
 
 const Util = require('./lib')
 
-var printWinners1 = require('./print-winners-1')
-var printWinners2 = require('./print-winners-2')
+const printWinners1 = require('./print-winners-1')
+const printWinners2 = require('./print-winners-2')
+const printWinnersDaniel = require('./print-winner-daniel')
+
+
 
 test.skip('Print winners 1 with provided dataset', ()=>{
 
@@ -76,7 +79,6 @@ test('Utils can be used to find a unique pizza topppings user', ()=>{
 
 })
 
-
 test('Utils can be used to find a unique pizza topppings user', ()=>{
 
   const expected = [
@@ -101,5 +103,15 @@ test('Utils can be used to find a unique pizza topppings user', ()=>{
 
   expect(unique).toEqual(expected)
 
+
+})
+
+test('Print Winner Daniel ouputs unique user as expected', ()=>{
+  let result = printWinnersDaniel(providedDataset)
+  let expected = [
+    {"email": "email2@example.com", "toppings": ["Cheddar", "Garlic", "Oregano"]}
+    ]
+
+    expect(result).toEqual(expected)
 
 })
