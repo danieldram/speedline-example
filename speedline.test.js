@@ -75,3 +75,31 @@ test('Utils can be used to find a unique pizza topppings user', ()=>{
 
 
 })
+
+
+test('Utils can be used to find a unique pizza topppings user', ()=>{
+
+  const expected = [
+    {"email": "email2@example.com", "toppings": ["Cheddar", "Garlic", "Oregano"]}
+    ]
+
+  let unique = null
+
+  let dataset = Util.PropMustExist(providedDataset, 'email')
+  dataset = Util.RequiredArrayPropLength(dataset, 'toppings', 3)
+
+  let toppings = Util.ExtractProp(dataset, 'toppings')
+  toppings = Util.ArraysToStrings(toppings)
+
+
+  for(topping of toppings){
+    let set = Util.FindStringInCollection(dataset, topping, 'toppings')
+    if(set.length ==1){
+      unique=set
+    }
+  }
+
+  expect(unique).toEqual(expected)
+
+
+})
